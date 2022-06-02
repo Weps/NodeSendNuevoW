@@ -9,7 +9,7 @@ const app = express();
 conectarDB();
 
 //Habilitar cors
-console.log(process.env.FRONTEND_URL)
+// console.log(process.env.FRONTEND_URL)
 const opcionesCors = {
     origin: process.env.FRONTEND_URL
 }

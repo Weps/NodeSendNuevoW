@@ -51,7 +51,9 @@ exports.descargar = async (req, res, next) => {
 
     //Obtiene el enlace
     const { archivo } = req.params;
-    const enlace = await Enlaces.findOne({ nombre: archivo })
+    const enlace = await Enlaces.findOne({ nombre: archivo });
+
+    console.log(enlace);
 
     const archivoDescarga = __dirname + '/../uploads/' + archivo;
     res.download(archivoDescarga);

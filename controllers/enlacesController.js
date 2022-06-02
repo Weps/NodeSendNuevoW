@@ -80,7 +80,7 @@ exports.tienePassword = async (req, res, next) => {
     }
 
     if(enlace.password) {
-        return res.json({ password: true, enlace: enlace.url })
+        return res.json({ password: true, enlace: enlace.url });
     }
 
     next();
