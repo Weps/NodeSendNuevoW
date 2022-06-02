@@ -77,8 +77,4 @@ exports.descargar = async (req, res, next) => {
         await enlace.save();
     }
     
-    if(!enlace) {
-        res.redirect(process.env.FRONTEND_URL)    
-        return next()
-    }
 }
