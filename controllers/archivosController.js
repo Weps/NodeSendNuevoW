@@ -53,7 +53,12 @@ exports.descargar = async (req, res, next) => {
     const { archivo } = req.params;
     const enlace = await Enlaces.findOne({ nombre: archivo });
 
-    console.log(enlace);
+    if(!enlace) {
+        res.redirect(process.env.FRONTEND_URL)    
+        return next()
+    }
+
+    // console.log(enlace);
 
     const archivoDescarga = __dirname + '/../uploads/' + archivo;
     res.download(archivoDescarga);
@@ -75,11 +80,6 @@ exports.descargar = async (req, res, next) => {
         //Si las descargas son mayores a 1, restar una descarga
         enlace.descargas--;
         await enlace.save();
-    }
-
-    if(!enlace) {
-        res.redirect(process.env.FRONTEND_URL)    
-        return next()
     }
     
 }
